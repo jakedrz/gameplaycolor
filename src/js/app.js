@@ -368,8 +368,13 @@ Promise.prototype.always = function(onAlways) {
 
   $(document).ready(function() {
 
-    console.log("Registering service worker")
-    navigator.serviceWorker.register("/service-worker.js")
+    try {
+      console.log("Registering service worker")
+      navigator.serviceWorker.register("/service-worker.js")
+      console.log("Service worker registered")
+    } catch (e) {
+      console.log("Service worker registration failed", e)
+    }
 
     // var iPhone = (navigator.userAgent.indexOf("iPhone OS") !== -1);
     // var iPad = (navigator.userAgent.indexOf("iPad") !== -1);
